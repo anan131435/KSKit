@@ -7,14 +7,21 @@
 //
 
 import Cocoa
-
+import AppKit
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-
-
+    var window: NSWindow!
+    var contentVC: KSBaseViewController!
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        // Insert code here to initialize your application
+        contentVC = KSBaseViewController.init()
+        window = NSWindow.init(contentViewController: contentVC!)
+        window.title = ""
+        let windowController = NSWindowController.init(window: window!)
+        windowController.showWindow(self)
+        
+
+        
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
