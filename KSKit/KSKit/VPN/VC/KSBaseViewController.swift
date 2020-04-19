@@ -7,7 +7,6 @@
 //
 
 import Cocoa
-
 class KSBaseViewController: NSViewController {
     lazy var noteView: KSVPNNoteTitleView = {
         let noteView = KSVPNNoteTitleView.init()
@@ -22,11 +21,23 @@ class KSBaseViewController: NSViewController {
         let operationView = KSVPNOperationView.init(frame: CGRect.init(x: 145, y: 7, width: 500, height: 126 + 14))
         return operationView
     }()
+    lazy var menuView: KSMenuView = {
+       let menuView = KSMenuView()
+        return menuView
+    }()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.addSubview(noteView)
         self.view.addSubview(netInforView)
         self.view.addSubview(operationView)
+        self.view.addSubview(menuView)
+        updateConstrains()
+    }
+    func updateConstrains(){
+        menuView.snp.makeConstraints { (make) in
+            make.left.top.bottom.equalTo(0)
+            make.width.equalTo(140)
+        }
     }
     override func loadView() {
         let mainview = NSView.init(frame: CGRect.init(x: 0, y: 0, width: 680, height: 444))
