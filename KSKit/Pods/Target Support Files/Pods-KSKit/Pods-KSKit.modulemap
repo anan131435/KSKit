@@ -1,0 +1,6 @@
+framework module Pods_KSKit {
+  umbrella header "Pods-KSKit-umbrella.h"
+
+  export *
+  module * { export * }
+}
