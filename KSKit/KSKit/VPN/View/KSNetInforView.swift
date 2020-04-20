@@ -12,7 +12,7 @@ class KSNetInforView: NSView {
     let itemWidth = 65
     let itemHeight = 17
     lazy var whiteView: NSView = {
-        let whiteView = NSView.init(frame: CGRect.init(x: 0, y: 7, width: self.bounds.size.width, height: 79))
+        let whiteView = NSView.init(frame: CGRect.init(x: 20, y: 7, width: self.bounds.size.width - 40, height: 79))
         whiteView.wantsLayer = true
         whiteView.layer?.cornerRadius = 6
         whiteView.layer?.backgroundColor = .white
@@ -26,19 +26,33 @@ class KSNetInforView: NSView {
         return netInfoBtn
     }()
     let dataArray: [String] = ["IP: 172.1.12","网关:171.1.1.","DNS:8.8.8.8","DNS:2.8.8.8"]
-    //暂时不考虑collectionView实现
-//    lazy var collectionView : NSCollectionView = {
-//        let collectionLayout = NSCollectionViewLayout.init()
-//        let collectionV = NSCollectionView.init(frame: CGRect.init(x: 14, y: 14, width: self.bounds.size.width, height: 20))
-//        collectionV.dataSource = self
-//        collectionV.register(<#T##itemClass: AnyClass?##AnyClass?#>, forItemWithIdentifier: <#T##NSUserInterfaceItemIdentifier#>)
-//        return collectionV
-//    }()
     
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
         self.addSubview(whiteView)
         self.whiteView.addSubview(netInfoBtn)
+        setupConstrains()
+        
+    }
+    
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    private func setupConstrains(){
+        whiteView.snp.makeConstraints { (make) in
+            make.left.equalTo(20)
+            make.right.equalTo(-20)
+            make.top.equalTo(7)
+            make.bottom.equalTo(-7)
+        }
+        netInfoBtn.snp.makeConstraints { (make) in
+            make.left.equalTo(18)
+            make.top.equalTo(14)
+            make.width.equalTo(72)
+            make.height.equalTo(23)
+        }
+        
         for (index,title) in dataArray.enumerated(){
             let titleView = NSTextField.init(frame: CGRect.init(x: (index * itemWidth * 2) + 14, y: 14, width: itemWidth, height: itemHeight))
             titleView.isBordered = false
@@ -50,8 +64,5 @@ class KSNetInforView: NSView {
         
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
 }

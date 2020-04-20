@@ -14,6 +14,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var contentVC: KSBaseViewController!
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
+//        window = KSWindow.init(contentRect: CGRect.init(x: 0, y: 0, width: 200, height: 200), styleMask: [.closable,.miniaturizable], backing: .buffered, defer: false)
+        
+       
+        
+        
         contentVC = KSBaseViewController.init()
         window = NSWindow.init(contentViewController: contentVC!)
         window.title = ""

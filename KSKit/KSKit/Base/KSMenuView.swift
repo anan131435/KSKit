@@ -9,7 +9,15 @@
 import Cocoa
 import SnapKit
 /*左侧的边栏视图*/
+
+enum KSMenuViewType {
+    case vpn
+    case treasure
+    case help
+}
+
 class KSMenuView: NSView {
+    var clickBlock: KSBaseParamClosure?
     // 背景放一张图片
         lazy var bgImg: NSImageView = {
             let view = NSImageView()
@@ -48,12 +56,12 @@ class KSMenuView: NSView {
             let view = NSButton()
             view.layer?.backgroundColor = NSColor.clear.cgColor
             view.isBordered = false
-            view.image = NSImage.init(named: NSImage.stopProgressTemplateName)
+            view.image = NSImage.init(named: NSImage.Name.init("vpnMenu"))
             view.imagePosition = .imageLeft
             view.focusRingType = .none
             view.imageHugsTitle = true
             view.imageScaling = .scaleProportionallyDown
-            view.attributedTitle = NSAttributedString(string: "  VPN  ", attributes: [NSAttributedString.Key.font : NSFont.systemFont(ofSize: 14), NSAttributedString.Key.foregroundColor : NSColor.white])
+            view.attributedTitle = NSAttributedString(string: "   VPN  ", attributes: [NSAttributedString.Key.font : NSFont.systemFont(ofSize: 14), NSAttributedString.Key.foregroundColor : NSColor.white])
             return view
             
         }()
@@ -65,7 +73,7 @@ class KSMenuView: NSView {
             view.isBordered = false
             view.focusRingType = .none
             view.imageHugsTitle = true
-            view.image = NSImage.init(named: NSImage.stopProgressTemplateName)
+            view.image = NSImage.init(named: NSImage.Name.init("treasure"))
             view.imagePosition = .imageLeft
             view.imageScaling = .scaleProportionallyDown
             view.attributedTitle = NSAttributedString(string: "  百宝箱  ", attributes: [NSAttributedString.Key.font : NSFont.systemFont(ofSize: 13), NSAttributedString.Key.foregroundColor : NSColor.white])
@@ -82,11 +90,11 @@ class KSMenuView: NSView {
             view.layer?.backgroundColor = NSColor.clear.cgColor
             view.isBordered = false
             view.focusRingType = .none
-            view.image = NSImage.init(named: NSImage.stopProgressTemplateName)
+            view.image = NSImage.init(named: NSImage.Name.init("help"))
             view.imagePosition = .imageLeft
             view.imageScaling = .scaleProportionallyDown
             view.imageHugsTitle = true
-            view.attributedTitle = NSAttributedString(string: "  帮助中心  ", attributes: [NSAttributedString.Key.font : NSFont.systemFont(ofSize: 13), NSAttributedString.Key.foregroundColor : NSColor.white])
+            view.attributedTitle = NSAttributedString(string: " 帮助中心  ", attributes: [NSAttributedString.Key.font : NSFont.systemFont(ofSize: 13), NSAttributedString.Key.foregroundColor : NSColor.white])
             return view
         }()
         
@@ -177,6 +185,9 @@ class KSMenuView: NSView {
             self.maskView.snp.updateConstraints { (make) in
                 make.top.equalTo(104)
             }
+            if self.clickBlock != nil {
+                self.clickBlock!(KSMenuViewType.vpn)
+            }
             
         }
         
@@ -186,6 +197,9 @@ class KSMenuView: NSView {
             self.maskView.snp.updateConstraints { (make) in
                 make.top.equalTo(144)
             }
+            if self.clickBlock != nil {
+                self.clickBlock!(KSMenuViewType.treasure)
+            }
             
         }
         
@@ -193,6 +207,9 @@ class KSMenuView: NSView {
             sender.isHighlighted = false
             self.maskView.snp.updateConstraints { (make) in
                 make.top.equalTo(184)
+            }
+            if self.clickBlock != nil {
+                self.clickBlock!(KSMenuViewType.help)
             }
             
         }

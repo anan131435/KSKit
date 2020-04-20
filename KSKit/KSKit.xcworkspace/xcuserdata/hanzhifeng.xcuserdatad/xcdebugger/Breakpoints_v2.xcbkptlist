@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "67DC4378-D245-4285-A0F6-53C4DB49650C"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "00EC7B4F-392B-4CB9-A06A-1B75C9868761"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KSKit/VPN/VC/KSBaseViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "bindUI()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "00EC7B4F-392B-4CB9-A06A-1B75C9868761 - 2fc0e9f155664f5f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "KSKit.KSBaseViewController.(bindUI in _6EE5AC15D5EF19FB9BD8C4BBA17B1B5F)() -&gt; ()"
+                  moduleName = "KSKit"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hanzhifeng/Downloads/Learn/KSKit/KSKit/KSKit/VPN/VC/KSBaseViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "56"
+                  endingLineNumber = "56"
+                  offsetFromSymbolStart = "22">
+               </Location>
+               <Location
+                  uuid = "00EC7B4F-392B-4CB9-A06A-1B75C9868761 - 58b119e6abebfce8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Any) -&gt; () in KSKit.KSBaseViewController.(bindUI in _6EE5AC15D5EF19FB9BD8C4BBA17B1B5F)() -&gt; ()"
+                  moduleName = "KSKit"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hanzhifeng/Downloads/Learn/KSKit/KSKit/KSKit/VPN/VC/KSBaseViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "56"
+                  endingLineNumber = "56"
+                  offsetFromSymbolStart = "139">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2179458C-19E0-469B-893C-09F6F960BD3F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KSKit/Treasure/View/KSItButton.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "updateItBtn(title:_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

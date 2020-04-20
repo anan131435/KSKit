@@ -10,7 +10,7 @@ import Cocoa
 
 class KSVPNOperationView: NSView {
     lazy var whiteView: NSView = {
-        let whiteView = NSView.init(frame: CGRect.init(x: 0, y: 7, width: self.bounds.size.width, height: 126))
+        let whiteView = NSView.init(frame: CGRect.init(x: 20, y: 7, width: self.bounds.size.width, height: 126))
         whiteView.wantsLayer = true
         whiteView.layer?.cornerRadius = 6
         whiteView.layer?.backgroundColor = .white
