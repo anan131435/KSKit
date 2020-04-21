@@ -9,6 +9,8 @@
 import Foundation
 
 /// 全局的Closure  用于传参回调
-public typealias KSBaseParamClosure = (_ value: Any? )-> Void
+public typealias KSParamClosure = (_ value: Any? )-> Void
 /// 全局的Closure  用于传参数和回调
-public typealias KSBaseParamValueClosure = (_ value: Any? ) -> Any?
+public typealias KSParamValueClosure = (_ value: Any? ) -> Any?
+
+public typealias KSNoParamClosure = ()-> Void

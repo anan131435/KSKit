@@ -23,6 +23,9 @@
 		7366A8B6244DE8EB00E0B9EA /* KSItServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7366A8B5244DE8EB00E0B9EA /* KSItServiceView.swift */; };
 		7366A8B8244DEE6600E0B9EA /* KSItButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7366A8B7244DEE6600E0B9EA /* KSItButton.swift */; };
 		7366A8BA244DF7FF00E0B9EA /* KSHelpMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7366A8B9244DF7FF00E0B9EA /* KSHelpMainView.swift */; };
+		7366A8BD244E9A5E00E0B9EA /* KSLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7366A8BC244E9A5E00E0B9EA /* KSLoginVC.swift */; };
+		7366A8BF244E9D6200E0B9EA /* KSWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7366A8BE244E9D6200E0B9EA /* KSWindowController.swift */; };
+		7366A8C2244F1AA000E0B9EA /* KSLoginMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7366A8C1244F1AA000E0B9EA /* KSLoginMainView.swift */; };
 		73AEE8A2244AB2840035F537 /* KSVPNNoteTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AEE8A1244AB2840035F537 /* KSVPNNoteTitleView.swift */; };
 		73AEE8A4244AC5CE0035F537 /* KSNetInforView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AEE8A3244AC5CE0035F537 /* KSNetInforView.swift */; };
 		73AEE8A8244AD3C50035F537 /* KSVPNOperationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AEE8A7244AD3C50035F537 /* KSVPNOperationView.swift */; };
@@ -55,6 +58,9 @@
 		7366A8B5244DE8EB00E0B9EA /* KSItServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSItServiceView.swift; sourceTree = "<group>"; };
 		7366A8B7244DEE6600E0B9EA /* KSItButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSItButton.swift; sourceTree = "<group>"; };
 		7366A8B9244DF7FF00E0B9EA /* KSHelpMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSHelpMainView.swift; sourceTree = "<group>"; };
+		7366A8BC244E9A5E00E0B9EA /* KSLoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSLoginVC.swift; sourceTree = "<group>"; };
+		7366A8BE244E9D6200E0B9EA /* KSWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSWindowController.swift; sourceTree = "<group>"; };
+		7366A8C1244F1AA000E0B9EA /* KSLoginMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSLoginMainView.swift; sourceTree = "<group>"; };
 		73AEE8A1244AB2840035F537 /* KSVPNNoteTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSVPNNoteTitleView.swift; sourceTree = "<group>"; };
 		73AEE8A3244AC5CE0035F537 /* KSNetInforView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSNetInforView.swift; sourceTree = "<group>"; };
 		73AEE8A7244AD3C50035F537 /* KSVPNOperationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSVPNOperationView.swift; sourceTree = "<group>"; };
@@ -106,6 +112,7 @@
 		731D3D97244A70D500EC4530 /* KSKit */ = {
 			isa = PBXGroup;
 			children = (
+				7366A8BB244E957A00E0B9EA /* Login */,
 				7366A8B0244DE81300E0B9EA /* Help */,
 				7366A8AD244DE80000E0B9EA /* Treasure */,
 				73A803AD244B063C008F2A21 /* VPN */,
@@ -175,6 +182,24 @@
 			isa = PBXGroup;
 			children = (
 				7366A8B9244DF7FF00E0B9EA /* KSHelpMainView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7366A8BB244E957A00E0B9EA /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				7366A8C0244F1A8B00E0B9EA /* View */,
+				7366A8BC244E9A5E00E0B9EA /* KSLoginVC.swift */,
+				7366A8BE244E9D6200E0B9EA /* KSWindowController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		7366A8C0244F1A8B00E0B9EA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7366A8C1244F1AA000E0B9EA /* KSLoginMainView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -364,11 +389,14 @@
 				73AEE8B0244AF1D70035F537 /* KSTurnOnBtn.swift in Sources */,
 				731D3DAB244A77F900EC4530 /* KSBaseViewController.swift in Sources */,
 				7366A8A6244DA3FB00E0B9EA /* KSWindow.swift in Sources */,
+				7366A8BD244E9A5E00E0B9EA /* KSLoginVC.swift in Sources */,
 				7366A8A1244C707500E0B9EA /* KSViewController.swift in Sources */,
 				73AEE8A4244AC5CE0035F537 /* KSNetInforView.swift in Sources */,
 				7366A89F244C6E9A00E0B9EA /* KSMenuView.swift in Sources */,
 				7366A8B8244DEE6600E0B9EA /* KSItButton.swift in Sources */,
 				731D3DA9244A72A000EC4530 /* KSColorExtension.swift in Sources */,
+				7366A8BF244E9D6200E0B9EA /* KSWindowController.swift in Sources */,
+				7366A8C2244F1AA000E0B9EA /* KSLoginMainView.swift in Sources */,
 				731D3D99244A70D500EC4530 /* AppDelegate.swift in Sources */,
 				7366A8B4244DE85100E0B9EA /* KSTreasureMainView.swift in Sources */,
 				7366A8B6244DE8EB00E0B9EA /* KSItServiceView.swift in Sources */,

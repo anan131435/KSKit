@@ -17,7 +17,7 @@ enum KSMenuViewType {
 }
 
 class KSMenuView: NSView {
-    var clickBlock: KSBaseParamClosure?
+    var clickBlock: KSParamClosure?
     // 背景放一张图片
         lazy var bgImg: NSImageView = {
             let view = NSImageView()

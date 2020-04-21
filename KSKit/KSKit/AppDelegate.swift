@@ -11,22 +11,26 @@ import AppKit
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     var window: NSWindow!
-    var contentVC: KSBaseViewController!
-
+//    var contentVC: KSBaseViewController!
+    var contentVC: NSViewController!
+    var windowVC: KSWindowController!
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-//        window = KSWindow.init(contentRect: CGRect.init(x: 0, y: 0, width: 200, height: 200), styleMask: [.closable,.miniaturizable], backing: .buffered, defer: false)
-        
-       
-        
-        
-        contentVC = KSBaseViewController.init()
-        window = NSWindow.init(contentViewController: contentVC!)
-        window.title = ""
-        let windowController = NSWindowController.init(window: window!)
-        windowController.showWindow(self)
-        
-
-        
+        if let _ =  NSUserDefaultsController.shared.defaults.value(forKey: "accoutn"){//登录过
+            contentVC = KSBaseViewController.init()
+            window = NSWindow.init(contentViewController: contentVC!)
+            window.title = ""
+            let windowController = NSWindowController.init(window: window!)
+            windowController.showWindow(self)
+        }else{//未登录过
+            window = KSWindow.init(contentRect: CGRect.init(x: 0, y: 0, width: 300, height: 400), styleMask: [.closable,.miniaturizable], backing: .buffered, defer: false)
+                   
+                   window.title = ""
+                    
+                   window.contentViewController = KSLoginVC()
+                   windowVC = KSWindowController.init(window: window!)
+                   window.center()
+                   windowVC.showWindow(self)
+        }
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
