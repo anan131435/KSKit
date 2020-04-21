@@ -17,6 +17,11 @@ class KSBaseViewController: NSViewController {
         treasureView.isHidden = true
         return treasureView
     }()
+    lazy var helpCenterView: KSHelpMainView = {
+       let treasureView = KSHelpMainView()
+        treasureView.isHidden = true
+        return treasureView
+    }()
     
     lazy var menuView: KSMenuView = {
        let menuView = KSMenuView()
@@ -26,7 +31,8 @@ class KSBaseViewController: NSViewController {
         super.viewDidLoad()
         view.addSubview(vpnMainView)
         view.addSubview(treasureView)
-        self.view.addSubview(menuView)
+        view.addSubview(helpCenterView)
+        view.addSubview(menuView)
         updateConstrains()
         bindUI()
     }
@@ -36,6 +42,10 @@ class KSBaseViewController: NSViewController {
             make.top.right.bottom.equalTo(0)
         }
         treasureView.snp.makeConstraints { (make) in
+            make.left.equalTo(menuView.snp.right)
+            make.top.right.bottom.equalTo(0)
+        }
+        helpCenterView.snp.makeConstraints { (make) in
             make.left.equalTo(menuView.snp.right)
             make.top.right.bottom.equalTo(0)
         }
@@ -60,10 +70,15 @@ class KSBaseViewController: NSViewController {
                 case .vpn:
                     self.vpnMainView.isHidden = false
                     self.treasureView.isHidden = true
+                    self.helpCenterView.isHidden = true
                 case .treasure:
                     self.vpnMainView.isHidden = true
                     self.treasureView.isHidden = false
-//                case .treasure
+                    self.helpCenterView.isHidden = true
+                case .help:
+                    self.vpnMainView.isHidden = true
+                    self.treasureView.isHidden = true
+                    self.helpCenterView.isHidden = false
                 default:
                     break
                 }
