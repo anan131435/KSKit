@@ -8,6 +8,10 @@
 
 import Cocoa
 class KSBaseViewController: NSViewController {
+    lazy var navigationView: KSNavigationView = {
+       let navigationView = KSNavigationView()
+        return navigationView
+    }()
     lazy var vpnMainView: KSVpNMainView = {
        let menuView = KSVpNMainView()
         return menuView
@@ -29,6 +33,7 @@ class KSBaseViewController: NSViewController {
     }()
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.addSubview(navigationView)
         view.addSubview(vpnMainView)
         view.addSubview(treasureView)
         view.addSubview(helpCenterView)
@@ -37,17 +42,25 @@ class KSBaseViewController: NSViewController {
         bindUI()
     }
     func updateConstrains(){
+        navigationView.snp.makeConstraints{ (make) in
+            make.left.right.equalTo(0)
+            make.top.equalTo(0)
+            make.height.equalTo(56)
+        }
         vpnMainView.snp.makeConstraints { (make) in
             make.left.equalTo(menuView.snp.right)
-            make.top.right.bottom.equalTo(0)
+            make.right.bottom.equalTo(0)
+            make.top.equalTo(navigationView.snp.bottom)
         }
         treasureView.snp.makeConstraints { (make) in
             make.left.equalTo(menuView.snp.right)
-            make.top.right.bottom.equalTo(0)
+            make.right.bottom.equalTo(0)
+            make.top.equalTo(navigationView.snp.bottom)
         }
         helpCenterView.snp.makeConstraints { (make) in
             make.left.equalTo(menuView.snp.right)
-            make.top.right.bottom.equalTo(0)
+            make.right.bottom.equalTo(0)
+            make.top.equalTo(navigationView.snp.bottom)
         }
         menuView.snp.makeConstraints { (make) in
             make.left.top.bottom.equalTo(0)

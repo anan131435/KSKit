@@ -35,7 +35,7 @@ class KSVpNMainView: NSView {
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
         self.wantsLayer = true
-        self.layer?.backgroundColor = NSColor.colorWithHex("ff7767").cgColor
+        self.layer?.backgroundColor = NSColor.clear.cgColor
         addChildViews()
         setupConstrains()
     }
@@ -52,23 +52,23 @@ class KSVpNMainView: NSView {
     private func setupConstrains(){
         noteView.snp.makeConstraints { (make) in
             make.left.equalTo(0)
-            make.top.equalTo(30)
+            make.top.equalTo(14)
             make.right.equalTo(0)
             make.height.equalTo(31)
         }
         netInforView.snp.makeConstraints { (make) in
             make.left.equalTo(0)
-            make.top.equalTo(noteView.snp.bottom).offset(7)
+            make.top.equalTo(noteView.snp.bottom).offset(-10)
             make.height.equalTo(79 + 14)
             make.right.equalTo(0)
         }
         routerChooseView.snp.makeConstraints { (make) in
             make.left.right.equalTo(operationView)
-            make.top.equalTo(netInforView.snp.bottom).offset(7)
+            make.top.equalTo(netInforView.snp.bottom).offset(0)
             make.height.equalTo(104)
         }
         operationView.snp.makeConstraints { (make) in
-            make.top.equalTo(routerChooseView.snp.bottom).offset(7)
+            make.top.equalTo(routerChooseView.snp.bottom).offset(3)
             make.right.equalToSuperview()
             make.height.equalTo(126 + 14)
             make.left.equalTo(0)

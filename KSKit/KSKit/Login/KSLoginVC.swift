@@ -14,7 +14,6 @@ class KSLoginVC: NSViewController {
         loginView.wantsLayer = true
         loginView.layer?.cornerRadius = 4
         loginView.layer?.masksToBounds = true
-        loginView.layer?.backgroundColor = NSColor.red.cgColor
         return loginView
     }()
 
@@ -48,34 +47,31 @@ class KSLoginVC: NSViewController {
         
     }
     func jumpToNewWindow(){
-        let window = KSWindow.init(contentRect: CGRect.init(x: 0, y: 0, width: 200, height: 400), styleMask: [.closable,.miniaturizable], backing: .buffered, defer: false)
-        window.title = "second"
+        let window = KSWindow.init(contentRect: CGRect.init(x: 0, y: 0, width: 680, height: 440), styleMask: [.closable,.miniaturizable], backing: .buffered, defer: false)
+        window.isMovableByWindowBackground = true
+        
+//        let contentVC = KSBaseViewController.init()
+//        let  window = NSWindow.init(contentViewController: contentVC)
+//        window.title = ""
+//        let windowController = NSWindowController.init(window: window)
+//        windowController.showWindow(self)
         
         if let appdelegate = NSApplication.shared.delegate as? AppDelegate{
             appdelegate.window = window
+            window.contentViewController = KSBaseViewController.init()
             window.makeKey()
             window.orderFront(nil)
             window.center()
             self.view.window?.orderOut(self)
+            NSUserDefaultsController.shared.defaults.set("account", forKey: "account")
+            NSUserDefaultsController.shared.defaults.synchronize()
         }
-//         NSUserDefaultsController.shared.defaults.set("account", forKey: "account")
-//        NSUserDefaultsController.shared.defaults.synchronize()
         
         
-    }
-    func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 50
-    }
-    
-    func collectionView(_ collectionView: NSCollectionView, didSelectItemsAt indexPaths: Set<IndexPath>) {
+        
         
     }
     
-    func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem{
-        let item = NSCollectionViewItem.init()
-        item.imageView?.image = NSImage.init(named: NSImage.Name.init(""))
-        return item
-    }
     
     
 }

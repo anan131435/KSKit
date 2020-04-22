@@ -26,6 +26,7 @@
 		7366A8BD244E9A5E00E0B9EA /* KSLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7366A8BC244E9A5E00E0B9EA /* KSLoginVC.swift */; };
 		7366A8BF244E9D6200E0B9EA /* KSWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7366A8BE244E9D6200E0B9EA /* KSWindowController.swift */; };
 		7366A8C2244F1AA000E0B9EA /* KSLoginMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7366A8C1244F1AA000E0B9EA /* KSLoginMainView.swift */; };
+		737455202450685E000E079C /* KSNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7374551F2450685E000E079C /* KSNavigationView.swift */; };
 		73AEE8A2244AB2840035F537 /* KSVPNNoteTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AEE8A1244AB2840035F537 /* KSVPNNoteTitleView.swift */; };
 		73AEE8A4244AC5CE0035F537 /* KSNetInforView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AEE8A3244AC5CE0035F537 /* KSNetInforView.swift */; };
 		73AEE8A8244AD3C50035F537 /* KSVPNOperationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AEE8A7244AD3C50035F537 /* KSVPNOperationView.swift */; };
@@ -33,6 +34,8 @@
 		73AEE8AC244AD4620035F537 /* KSVpnChooseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AEE8AB244AD4620035F537 /* KSVpnChooseModel.swift */; };
 		73AEE8AE244AEF8F0035F537 /* KSImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AEE8AD244AEF8F0035F537 /* KSImageExtension.swift */; };
 		73AEE8B0244AF1D70035F537 /* KSTurnOnBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AEE8AF244AF1D70035F537 /* KSTurnOnBtn.swift */; };
+		73EBD48B245078CB008E1AF0 /* KSItDeskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EBD48A245078CB008E1AF0 /* KSItDeskView.swift */; };
+		73EBD48D24507C6F008E1AF0 /* KSHelpCollectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EBD48C24507C6F008E1AF0 /* KSHelpCollectionItem.swift */; };
 		E22290B5FFC1159A5590B72E /* Pods_KSKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C171640D68A35BD9B9837509 /* Pods_KSKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +64,7 @@
 		7366A8BC244E9A5E00E0B9EA /* KSLoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSLoginVC.swift; sourceTree = "<group>"; };
 		7366A8BE244E9D6200E0B9EA /* KSWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSWindowController.swift; sourceTree = "<group>"; };
 		7366A8C1244F1AA000E0B9EA /* KSLoginMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSLoginMainView.swift; sourceTree = "<group>"; };
+		7374551F2450685E000E079C /* KSNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSNavigationView.swift; sourceTree = "<group>"; };
 		73AEE8A1244AB2840035F537 /* KSVPNNoteTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSVPNNoteTitleView.swift; sourceTree = "<group>"; };
 		73AEE8A3244AC5CE0035F537 /* KSNetInforView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSNetInforView.swift; sourceTree = "<group>"; };
 		73AEE8A7244AD3C50035F537 /* KSVPNOperationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSVPNOperationView.swift; sourceTree = "<group>"; };
@@ -68,6 +72,8 @@
 		73AEE8AB244AD4620035F537 /* KSVpnChooseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSVpnChooseModel.swift; sourceTree = "<group>"; };
 		73AEE8AD244AEF8F0035F537 /* KSImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSImageExtension.swift; sourceTree = "<group>"; };
 		73AEE8AF244AF1D70035F537 /* KSTurnOnBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSTurnOnBtn.swift; sourceTree = "<group>"; };
+		73EBD48A245078CB008E1AF0 /* KSItDeskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSItDeskView.swift; sourceTree = "<group>"; };
+		73EBD48C24507C6F008E1AF0 /* KSHelpCollectionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSHelpCollectionItem.swift; sourceTree = "<group>"; };
 		C171640D68A35BD9B9837509 /* Pods_KSKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KSKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -112,6 +118,7 @@
 		731D3D97244A70D500EC4530 /* KSKit */ = {
 			isa = PBXGroup;
 			children = (
+				7366A89D244C6E7800E0B9EA /* Base */,
 				7366A8BB244E957A00E0B9EA /* Login */,
 				7366A8B0244DE81300E0B9EA /* Help */,
 				7366A8AD244DE80000E0B9EA /* Treasure */,
@@ -130,7 +137,9 @@
 		7366A89D244C6E7800E0B9EA /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				73A803AE244B063C008F2A21 /* VC */,
 				7366A89E244C6E9A00E0B9EA /* KSMenuView.swift */,
+				7374551F2450685E000E079C /* KSNavigationView.swift */,
 			);
 			name = Base;
 			path = KSKit/Base;
@@ -182,6 +191,8 @@
 			isa = PBXGroup;
 			children = (
 				7366A8B9244DF7FF00E0B9EA /* KSHelpMainView.swift */,
+				73EBD48A245078CB008E1AF0 /* KSItDeskView.swift */,
+				73EBD48C24507C6F008E1AF0 /* KSHelpCollectionItem.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -219,8 +230,6 @@
 		73A803AD244B063C008F2A21 /* VPN */ = {
 			isa = PBXGroup;
 			children = (
-				7366A89D244C6E7800E0B9EA /* Base */,
-				73A803AE244B063C008F2A21 /* VC */,
 				73A803AF244B063C008F2A21 /* Model */,
 				73A803B0244B063C008F2A21 /* View */,
 			);
@@ -381,11 +390,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73EBD48D24507C6F008E1AF0 /* KSHelpCollectionItem.swift in Sources */,
 				7366A8BA244DF7FF00E0B9EA /* KSHelpMainView.swift in Sources */,
 				731D3D9B244A70D500EC4530 /* ViewController.swift in Sources */,
 				73AEE8A8244AD3C50035F537 /* KSVPNOperationView.swift in Sources */,
+				737455202450685E000E079C /* KSNavigationView.swift in Sources */,
 				73AEE8A2244AB2840035F537 /* KSVPNNoteTitleView.swift in Sources */,
 				73AEE8AE244AEF8F0035F537 /* KSImageExtension.swift in Sources */,
+				73EBD48B245078CB008E1AF0 /* KSItDeskView.swift in Sources */,
 				73AEE8B0244AF1D70035F537 /* KSTurnOnBtn.swift in Sources */,
 				731D3DAB244A77F900EC4530 /* KSBaseViewController.swift in Sources */,
 				7366A8A6244DA3FB00E0B9EA /* KSWindow.swift in Sources */,

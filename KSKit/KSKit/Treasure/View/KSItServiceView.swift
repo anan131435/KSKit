@@ -25,7 +25,7 @@ class KSItServiceView: NSView {
         netInfoBtn.frame = CGRect.init(x: 14, y: 45, width: 72, height: 23)
         return netInfoBtn
     }()
-    let dataArray: [(String,String)] = [("netCheck","VPN"),("account","账户服务"),("dnsReset","DNS重置"),("security","安全检查"),("netCheck","网络检测")]
+    
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
         
@@ -42,19 +42,7 @@ class KSItServiceView: NSView {
     func addChildView(){
         addSubview(whiteView)
         whiteView.addSubview(itNoteBtn)
-        for (index,temple) in dataArray.enumerated() {
-            let button = KSItButton()
-            whiteView.addSubview(button)
-            button.isBordered = false
-            button.title = ""
-            button.updateItBtn(title: temple.1, temple.0)
-            button.snp.makeConstraints { (make) in
-                make.left.equalTo(14 + index * btnWidth)
-                make.width.equalTo(btnWidth)
-                make.top.equalTo(itNoteBtn.snp.bottom).offset(14)
-                make.height.equalTo(92)
-            }
-        }
+        
     }
     func setupConstrains(){
         whiteView.snp.makeConstraints { (make) in
@@ -70,6 +58,21 @@ class KSItServiceView: NSView {
             make.height.equalTo(23)
         }
         
+    }
+    func updateContent(_ dataArray: [(String,String)]){
+        for (index,temple) in dataArray.enumerated() {
+            let button = KSItButton()
+            whiteView.addSubview(button)
+            button.isBordered = false
+            button.title = ""
+            button.updateItBtn(title: temple.1, temple.0)
+            button.snp.makeConstraints { (make) in
+                make.left.equalTo(14 + index * btnWidth)
+                make.width.equalTo(btnWidth)
+                make.top.equalTo(itNoteBtn.snp.bottom).offset(14)
+                make.height.equalTo(92)
+            }
+        }
     }
     
 }
