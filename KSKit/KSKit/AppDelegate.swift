@@ -23,9 +23,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             windowController.showWindow(self)
         }else{//未登录过
             window = KSWindow.init(contentRect: CGRect.init(x: 0, y: 0, width: 300, height: 400), styleMask: [.closable,.miniaturizable], backing: .buffered, defer: false)
-                   
+            
                    window.title = ""
-                    
                    window.contentViewController = KSLoginVC()
                    windowVC = KSWindowController.init(window: window!)
                    window.center()

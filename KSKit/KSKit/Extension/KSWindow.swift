@@ -13,4 +13,8 @@ class KSWindow: NSWindow {
 //        super.init(contentRect: contentRect, styleMask: style, backing: backingStoreType, defer: flag)
 //        self.backgroundColor = NSColor.clear
 //    }
+    override var canBecomeKey: Bool{
+        return true
+    }
+    
 }

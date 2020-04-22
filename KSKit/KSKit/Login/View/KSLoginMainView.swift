@@ -22,6 +22,8 @@ class KSLoginMainView: NSView {
         titleView.font = NSFont.systemFont(ofSize: 14)
         titleView.backgroundColor = .clear
         titleView.isBordered = false
+        titleView.isEditable = true
+        titleView.focusRingType = .none
         return titleView
     }()
     lazy var emailLine: NSView = {
@@ -37,6 +39,8 @@ class KSLoginMainView: NSView {
         titleView.font = NSFont.systemFont(ofSize: 14)
         titleView.backgroundColor = .clear
         titleView.isBordered = false
+        titleView.isEditable = true
+        titleView.focusRingType = .none
         return titleView
     }()
     lazy var codeLine: NSView = {

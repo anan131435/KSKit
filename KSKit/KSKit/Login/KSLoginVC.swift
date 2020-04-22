@@ -50,6 +50,7 @@ class KSLoginVC: NSViewController {
     func jumpToNewWindow(){
         let window = KSWindow.init(contentRect: CGRect.init(x: 0, y: 0, width: 200, height: 400), styleMask: [.closable,.miniaturizable], backing: .buffered, defer: false)
         window.title = "second"
+        
         if let appdelegate = NSApplication.shared.delegate as? AppDelegate{
             appdelegate.window = window
             window.makeKey()
