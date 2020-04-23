@@ -21,6 +21,7 @@ class KSItDeskView: NSView,NSCollectionViewDataSource,NSCollectionViewDelegate {
            let netInfoBtn = NSButton.init(title: "IT桌面", image: Bundle.main.image(forResource: "netInfoIcon")!.resize(CGSize.init(width: 2, height: 12)), target: nil, action: nil)
            netInfoBtn.font = NSFont.systemFont(ofSize: 14)
            netInfoBtn.isBordered = false
+           netInfoBtn.attributedTitle = NSAttributedString(string: "IT桌面", attributes: [NSAttributedString.Key.font : NSFont.systemFont(ofSize: 14), NSAttributedString.Key.foregroundColor : NSColor.colorWithHex("333333")])
            netInfoBtn.frame = CGRect.init(x: 14, y: 45, width: 72, height: 23)
            return netInfoBtn
        }()
@@ -33,8 +34,8 @@ class KSItDeskView: NSView,NSCollectionViewDataSource,NSCollectionViewDelegate {
         collectionView.collectionViewLayout = layout
         collectionView.register(KSHelpCollectionItem.classForCoder(), forItemWithIdentifier: NSUserInterfaceItemIdentifier.init(rawValue: "KSHelpCollectionItem"))
         collectionView.wantsLayer = true
-        collectionView.layer?.borderColor = NSColor.red.cgColor
-        collectionView.layer?.borderWidth = 1
+//        collectionView.layer?.borderColor = NSColor.red.cgColor
+//        collectionView.layer?.borderWidth = 1
         return collectionView
     }()
     var dataSource: [String] = [String]()
@@ -68,7 +69,7 @@ class KSItDeskView: NSView,NSCollectionViewDataSource,NSCollectionViewDelegate {
         itNoteBtn.snp.makeConstraints { (make) in
             make.left.equalTo(18)
             make.top.equalTo(18)
-            make.width.equalTo(48)
+            make.width.equalTo(80)
             make.height.equalTo(23)
         }
         collectionView.snp.makeConstraints { (make) in
@@ -82,9 +83,10 @@ class KSItDeskView: NSView,NSCollectionViewDataSource,NSCollectionViewDelegate {
         collectionView.dataSource = self
         collectionView.delegate = self
     }
-    func setupData(dataArr: [String]){
+    func setupData(dataArr: [String],btnTitle: String){
         dataSource = dataArr
         collectionView.reloadData()
+        itNoteBtn.attributedTitle = NSAttributedString(string: btnTitle, attributes: [NSAttributedString.Key.font : NSFont.systemFont(ofSize: 14), NSAttributedString.Key.foregroundColor : NSColor.colorWithHex("333333")])
     }
     func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
         return dataSource.count
