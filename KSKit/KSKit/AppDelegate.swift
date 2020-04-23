@@ -28,18 +28,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             window.orderFront(nil)
             window.center()
         }else{//未登录过
-            window = KSWindow.init(contentRect: CGRect.init(x: 0, y: 0, width: 680, height: 440), styleMask: [.closable,.miniaturizable], backing: .buffered, defer: false)
-                       window.isMovableByWindowBackground = true
-                       window.contentViewController = KSBaseViewController.init()
-                       let windowController = NSWindowController.init(window: window!)
-                        windowController.showWindow(self)
-//            window = KSWindow.init(contentRect: CGRect.init(x: 0, y: 0, width: 300, height: 400), styleMask: [.closable,.miniaturizable], backing: .buffered, defer: false)
-//            window.titleVisibility = .hidden
-//            window.isMovableByWindowBackground = true
-//                   window.contentViewController = KSLoginVC()
-//                   windowVC = KSWindowController.init(window: window!)
-//                   window.center()
-//                   windowVC.showWindow(self)
+//            window = KSWindow.init(contentRect: CGRect.init(x: 0, y: 0, width: 680, height: 440), styleMask: [.closable,.miniaturizable], backing: .buffered, defer: false)
+//                       window.isMovableByWindowBackground = true
+//                       window.contentViewController = KSBaseViewController.init()
+//                       let windowController = NSWindowController.init(window: window!)
+//                        windowController.showWindow(self)
+            window = KSWindow.init(contentRect: CGRect.init(x: 0, y: 0, width: 300, height: 400), styleMask: [.closable,.miniaturizable], backing: .buffered, defer: false)
+            window.titleVisibility = .hidden
+            window.isMovableByWindowBackground = true
+                   window.contentViewController = KSLoginVC()
+                   windowVC = KSWindowController.init(window: window!)
+                   window.center()
+                   windowVC.showWindow(self)
         }
     }
 
