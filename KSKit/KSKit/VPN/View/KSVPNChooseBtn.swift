@@ -33,13 +33,31 @@ class KSVPNChooseBtn: NSView {
         noteView.backgroundColor = .clear
         return noteView
     }()
-    lazy var choonseView: NSImageView = {
-        let iconView = NSImageView.init(frame: CGRect.init(x: self.bounds.width - 30 , y: 65, width: 16, height: 16))
-        iconView.image = NSImage.init(named: "turnOn")
-        iconView.wantsLayer = true
-        iconView.layer?.borderColor = NSColor.red.cgColor
-        iconView.layer?.borderWidth = 0.5
-        return iconView
+//    lazy var choonseView: NSImageView = {
+//        let iconView = NSImageView.init(frame: CGRect.init(x: self.bounds.width - 30 , y: 65, width: 16, height: 16))
+//        iconView.image = NSImage.init(named: "turnOn")
+//        iconView.wantsLayer = true
+//        iconView.layer?.borderColor = NSColor.red.cgColor
+//        iconView.layer?.borderWidth = 0.5
+//        return iconView
+//    }()
+    lazy var notSelectView: NSView = {
+       let notSelectView = NSView()
+        notSelectView.wantsLayer = true
+        notSelectView.layer?.cornerRadius = 8
+        notSelectView.layer?.borderWidth = 1
+        notSelectView.layer?.borderColor = NSColor.colorWithHex("E3E3E3").cgColor
+        notSelectView.layer?.backgroundColor = NSColor.colorWithHex("ffffff").cgColor
+        return notSelectView
+    }()
+    lazy var selectView: NSView = {
+       let notSelectView = NSView()
+        notSelectView.wantsLayer = true
+        notSelectView.layer?.cornerRadius = 8
+        notSelectView.layer?.borderWidth = 3
+        notSelectView.layer?.borderColor = NSColor.colorWithHex("0f66ff").cgColor
+        notSelectView.layer?.backgroundColor = NSColor.colorWithHex("ffffff").cgColor
+        return notSelectView
     }()
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
@@ -52,6 +70,7 @@ class KSVPNChooseBtn: NSView {
         self.layer?.cornerRadius = 6
         self.layer?.backgroundColor = NSColor.colorWithHex("f5f6f8").cgColor
         self.addChildView()
+        self.setupConstrains()
     }
     
     required init?(coder: NSCoder) {
@@ -61,7 +80,20 @@ class KSVPNChooseBtn: NSView {
         self.addSubview(noteView)
         self.addSubview(iconView)
         self.addSubview(titleView)
-        self.addSubview(choonseView)
+        self.addSubview(selectView)
+        self.addSubview(notSelectView)
+    }
+    func setupConstrains(){
+        selectView.snp.makeConstraints { (make) in
+            make.centerY.equalTo(titleView.snp.centerY)
+            make.width.height.equalTo(16)
+            make.right.equalTo(-14)
+        }
+        notSelectView.snp.makeConstraints { (make) in
+            make.centerY.equalTo(titleView.snp.centerY)
+            make.width.height.equalTo(16)
+            make.right.equalTo(-14)
+        }
     }
     func updateChooseBtnContent(_ model: KSVpnChooseModel){
         self.noteView.placeholderString = model.note
@@ -69,8 +101,9 @@ class KSVPNChooseBtn: NSView {
         let nssAttribute = NSMutableAttributedString.init(string: model.title)
         nssAttribute.addAttributes([NSAttributedString.Key.foregroundColor: NSColor.colorWithHex("0f66ff")], range: NSRange.init(location: 0, length: model.title.count))
         self.titleView.placeholderAttributedString = nssAttribute
-        let imageName = model.ifOpen ? "" : ""
-        self.choonseView.image = NSImage.init(named: NSImage.Name.init(imageName))
+        selectView.isHidden = model.ifOpen
+        notSelectView.isHidden = !model.ifOpen
+        
     }
     
 }

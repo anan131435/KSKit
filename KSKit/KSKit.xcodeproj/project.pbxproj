@@ -202,7 +202,6 @@
 			children = (
 				7366A8C0244F1A8B00E0B9EA /* View */,
 				7366A8BC244E9A5E00E0B9EA /* KSLoginVC.swift */,
-				7366A8BE244E9D6200E0B9EA /* KSWindowController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -239,6 +238,7 @@
 		73A803AE244B063C008F2A21 /* VC */ = {
 			isa = PBXGroup;
 			children = (
+				7366A8BE244E9D6200E0B9EA /* KSWindowController.swift */,
 				731D3DAA244A77F900EC4530 /* KSBaseViewController.swift */,
 			);
 			path = VC;

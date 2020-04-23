@@ -53,8 +53,10 @@ class KSLoginVC: NSViewController {
 //        let contentVC = KSBaseViewController.init()
 //        let  window = NSWindow.init(contentViewController: contentVC)
 //        window.title = ""
-//        let windowController = NSWindowController.init(window: window)
+//        let windowController = KSWindowController.init(window: window)
 //        windowController.showWindow(self)
+//        window.isMovableByWindowBackground = true
+//        window.titlebarAppearsTransparent = true
         
         if let appdelegate = NSApplication.shared.delegate as? AppDelegate{
             appdelegate.window = window

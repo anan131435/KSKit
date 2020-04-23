@@ -10,7 +10,7 @@ import Cocoa
 import AppKit
 class KSVPNNoteTitleView: NSView {
     lazy var titleView: NSTextField = {
-        let titleView = NSTextField.init(frame: CGRect.init(x: 37, y: 14, width: 480, height: 17))
+        let titleView = NSTextField.init(frame: CGRect.init(x: 37, y: 14, width: 491, height: 17))
         titleView.textColor = NSColor.colorWithHex("c8ccs2")
         titleView.placeholderString = "同学，您好欢迎使用KIT，如果在使用过程中有任何问题，请随时联系IT小助手给予帮助！"
         titleView.font = NSFont.systemFont(ofSize: 12)

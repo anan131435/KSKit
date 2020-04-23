@@ -9,6 +9,8 @@
 import Cocoa
 
 class KSVPNOperationView: NSView {
+    var splitModel: KSVpnChooseModel!
+    var fullModel: KSVpnChooseModel!
     lazy var whiteView: NSView = {
         let whiteView = NSView.init(frame: CGRect.init(x: 20, y: 7, width: self.bounds.size.width, height: 126))
         whiteView.wantsLayer = true
@@ -18,19 +20,20 @@ class KSVPNOperationView: NSView {
     }()
     lazy var splitBtn: KSVPNChooseBtn = {
         let button = KSVPNChooseBtn.init(frame: CGRect.init(x: 14, y: 14, width: 172, height: 98))
+        button.addGestureRecognizer(NSClickGestureRecognizer.init(target: self, action: #selector(officeNetModel)))
         return button
     }()
     lazy var fullBtn: KSVPNChooseBtn = {
         let button = KSVPNChooseBtn.init(frame: CGRect.init(x: self.splitBtn.frame.maxX + 14, y: 14, width: 172, height: 98))
+         button.addGestureRecognizer(NSClickGestureRecognizer.init(target: self, action: #selector(allNetModel)))
         return button
     }()
     lazy var closeOpenIcon: KSTurnOnBtn = {
         let iconView = KSTurnOnBtn.init(frame: CGRect.init(x: self.fullBtn.frame.maxX + 14, y: 14, width: 98, height: 98))
         iconView.wantsLayer = true
-        iconView.layer?.borderColor = NSColor.red.cgColor
-        iconView.layer?.borderWidth = 0.5
         return iconView
     }()
+    
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
 
@@ -53,16 +56,29 @@ class KSVPNOperationView: NSView {
     }
     
     func updateVPNOperationView(){
-        let splitModel = KSVpnChooseModel()
+        splitModel = KSVpnChooseModel()
         splitModel.note = "本模式只有在办公室网络通过VPN访问"
         splitModel.imageName = "splitIcon"
         splitModel.title = "SPLIT"
         splitBtn.updateChooseBtnContent(splitModel)
         
-        let fullModel = KSVpnChooseModel()
+        fullModel = KSVpnChooseModel()
         fullModel.note = "本模式所有网络都将通过VPN访问"
         fullModel.imageName = "fullLock"
         fullModel.title = "FULL"
+        fullModel.ifOpen = true
+        fullBtn.updateChooseBtnContent(fullModel)
+    }
+    @objc func officeNetModel(){
+        fullModel.ifOpen = true
+        splitModel.ifOpen = false
+        splitBtn.updateChooseBtnContent(splitModel)
+        fullBtn.updateChooseBtnContent(fullModel)
+    }
+    @objc func allNetModel(){
+        fullModel.ifOpen = false
+        splitModel.ifOpen = true
+        splitBtn.updateChooseBtnContent(splitModel)
         fullBtn.updateChooseBtnContent(fullModel)
     }
     

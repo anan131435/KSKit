@@ -17,4 +17,6 @@ class KSWindow: NSWindow {
         return true
     }
     
+    
+    
 }

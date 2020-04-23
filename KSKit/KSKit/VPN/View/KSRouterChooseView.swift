@@ -47,6 +47,31 @@ class KSRouterChooseView: NSView {
         
         return titleView
     }()
+    lazy var arrowIcon: NSImageView = {
+        let icon = NSImageView()
+        icon.image = NSImage.init(named: NSImage.Name.init("downArrow"))?.resize(CGSize.init(width: 12, height: 6))
+        return icon
+    }()
+    lazy var mapIcon: NSImageView = {
+        let icon = NSImageView()
+        icon.image = NSImage.init(named: NSImage.Name.init("mapIcon"))?.resize(CGSize.init(width: 194, height: 87))
+        return icon
+    }()
+    lazy var locationIconOne: NSImageView = {
+        let icon = NSImageView()
+        icon.image = NSImage.init(named: NSImage.Name.init("locationIcon"))?.resize(CGSize.init(width: 10, height: 15))
+        return icon
+    }()
+    lazy var locationIconTwo: NSImageView = {
+           let icon = NSImageView()
+           icon.image = NSImage.init(named: NSImage.Name.init("locationIcon"))?.resize(CGSize.init(width: 10, height: 15))
+           return icon
+       }()
+    lazy var locationIconThree: NSImageView = {
+        let icon = NSImageView()
+        icon.image = NSImage.init(named: NSImage.Name.init("locationIcon"))?.resize(CGSize.init(width: 10, height: 15))
+        return icon
+    }()
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
 
@@ -66,6 +91,11 @@ class KSRouterChooseView: NSView {
         whiteView.addSubview(routerBtn)
         whiteView.addSubview(autoChooseBtn)
         autoChooseBtn.addSubview(titleView)
+        autoChooseBtn.addSubview(arrowIcon)
+        whiteView.addSubview(mapIcon)
+        whiteView.addSubview(locationIconOne)
+        whiteView.addSubview(locationIconTwo)
+        whiteView.addSubview(locationIconThree)
     }
     private func setupConstrains(){
         whiteView.snp.makeConstraints { (make) in
@@ -86,12 +116,36 @@ class KSRouterChooseView: NSView {
             make.width.equalTo(180)
             make.height.equalTo(28)
         }
+        mapIcon.snp.makeConstraints { (make) in
+            make.right.equalTo(-3)
+            make.centerY.equalTo(self)
+            make.width.equalTo(194)
+            make.height.equalTo(87)
+        }
 
         titleView.snp.makeConstraints { (make) in
             make.left.equalTo(12)
             make.centerY.equalToSuperview()
             make.width.equalTo(100)
             make.height.equalTo(18)
+        }
+        arrowIcon.snp.makeConstraints { (make) in
+            make.right.equalTo(-12)
+            make.centerY.equalToSuperview()
+            make.width.equalTo(12)
+            make.height.equalTo(6)
+        }
+        locationIconOne.snp.makeConstraints { (make) in
+            make.width.equalTo(10)
+            make.height.equalTo(15)
+            make.right.equalTo(-60)
+            make.top.equalTo(17)
+        }
+        locationIconTwo.snp.makeConstraints { (make) in
+               make.width.equalTo(10)
+               make.height.equalTo(15)
+               make.right.equalTo(-120)
+               make.top.equalTo(30)
         }
         
     }
