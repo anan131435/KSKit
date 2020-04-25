@@ -165,7 +165,7 @@ class KSLoginMainView: NSView {
         }
     }
     @objc func verifiCationBtnDidClick(){
-        var number = 10
+        var number = 60
         verificationBtn.isHidden = true
         countDownView.isHidden = false
         let nsmutablString = NSMutableAttributedString.init(string: "倒计时(60s)", attributes: [NSAttributedString.Key.font: NSFont.systemFont(ofSize: 14),NSAttributedString.Key.foregroundColor : NSColor.colorWithHex("999999")])
