@@ -1,5 +1,5 @@
 //
-//  KSBaseViewController.swift
+//  KSMainViewController.swift
 //  KSKit
 //
 //  Created by 韩志峰 on 2020/4/18.
@@ -7,7 +7,7 @@
 //
 
 import Cocoa
-class KSBaseViewController: NSViewController {
+class KSMainViewController: NSViewController {
     lazy var navigationView: KSNavigationView = {
        let navigationView = KSNavigationView()
         return navigationView
@@ -120,7 +120,7 @@ class KSBaseViewController: NSViewController {
     
     
     deinit {
-        NSLog("KSBaseViewController deinit")
+        NSLog("KSMainViewController deinit")
     }
     
     

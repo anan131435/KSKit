@@ -71,7 +71,7 @@ class KSLoginVC: NSViewController {
         let window = KSWindow.init(contentRect: CGRect.init(x: 0, y: 0, width: 680, height: 440), styleMask: [.closable,.miniaturizable], backing: .buffered, defer: false)
         window.isMovableByWindowBackground = true
         
-//        let contentVC = KSBaseViewController.init()
+//        let contentVC = KSMainViewController.init()
 //        let  window = NSWindow.init(contentViewController: contentVC)
 //        window.title = ""
 //        let windowController = KSWindowController.init(window: window)
@@ -81,7 +81,7 @@ class KSLoginVC: NSViewController {
         
         if let appdelegate = NSApplication.shared.delegate as? AppDelegate{
             appdelegate.window = window
-            window.contentViewController = KSBaseViewController.init()
+            window.contentViewController = KSMainViewController.init()
             window.makeKey()
             window.orderFront(nil)
             window.center()
@@ -96,6 +96,7 @@ class KSLoginVC: NSViewController {
         }
     }
     @objc func miniBtnDidClick(){
+        
         if let window = self.view.window{
             window.miniaturize(self)
         }

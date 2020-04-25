@@ -11,26 +11,26 @@ import AppKit
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     var window: NSWindow!
-//    var contentVC: KSBaseViewController!
+//    var contentVC: KSMainViewController!
     var contentVC: NSViewController!
     var windowVC: KSWindowController!
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         if let _ =  NSUserDefaultsController.shared.defaults.value(forKey: "accoutn"){//登录过
-//            contentVC = KSBaseViewController.init()
+//            contentVC = KSMainViewController.init()
 //            window = NSWindow.init(contentViewController: contentVC!)
 //            window.title = ""
 //            let windowController = NSWindowController.init(window: window!)
 //            windowController.showWindow(self)
             window = KSWindow.init(contentRect: CGRect.init(x: 0, y: 0, width: 680, height: 440), styleMask: [.closable,.miniaturizable], backing: .buffered, defer: false)
             window.isMovableByWindowBackground = true
-            window.contentViewController = KSBaseViewController.init()
+            window.contentViewController = KSMainViewController.init()
             window.makeKey()
             window.orderFront(nil)
             window.center()
         }else{//未登录过
 //            window = KSWindow.init(contentRect: CGRect.init(x: 0, y: 0, width: 680, height: 440), styleMask: [.closable,.miniaturizable], backing: .buffered, defer: false)
 //                       window.isMovableByWindowBackground = true
-//                       window.contentViewController = KSBaseViewController.init()
+//                       window.contentViewController = KSMainViewController.init()
 //                       let windowController = NSWindowController.init(window: window!)
 //                        windowController.showWindow(self)
             
@@ -48,7 +48,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Insert code here to tear down your application
     }
     func windowTest(){
-         contentVC = KSBaseViewController.init()
+         contentVC = KSMainViewController.init()
                            window = NSWindow.init(contentViewController: contentVC!)
                 window.titleVisibility = .hidden
         //        window.styleMask.remove(.titled)

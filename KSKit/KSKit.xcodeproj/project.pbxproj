@@ -12,7 +12,7 @@
 		731D3D9D244A70D600EC4530 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 731D3D9C244A70D600EC4530 /* Assets.xcassets */; };
 		731D3DA0244A70D600EC4530 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 731D3D9E244A70D600EC4530 /* Main.storyboard */; };
 		731D3DA9244A72A000EC4530 /* KSColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731D3DA8244A72A000EC4530 /* KSColorExtension.swift */; };
-		731D3DAB244A77F900EC4530 /* KSBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731D3DAA244A77F900EC4530 /* KSBaseViewController.swift */; };
+		731D3DAB244A77F900EC4530 /* KSMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731D3DAA244A77F900EC4530 /* KSMainViewController.swift */; };
 		7366A89F244C6E9A00E0B9EA /* KSMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7366A89E244C6E9A00E0B9EA /* KSMenuView.swift */; };
 		7366A8A1244C707500E0B9EA /* KSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7366A8A0244C707500E0B9EA /* KSViewController.swift */; };
 		7366A8A6244DA3FB00E0B9EA /* KSWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7366A8A5244DA3FB00E0B9EA /* KSWindow.swift */; };
@@ -50,7 +50,7 @@
 		731D3DA1244A70D600EC4530 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		731D3DA2244A70D600EC4530 /* KSKit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = KSKit.entitlements; sourceTree = "<group>"; };
 		731D3DA8244A72A000EC4530 /* KSColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSColorExtension.swift; sourceTree = "<group>"; };
-		731D3DAA244A77F900EC4530 /* KSBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSBaseViewController.swift; sourceTree = "<group>"; };
+		731D3DAA244A77F900EC4530 /* KSMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSMainViewController.swift; sourceTree = "<group>"; };
 		7366A89E244C6E9A00E0B9EA /* KSMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSMenuView.swift; sourceTree = "<group>"; };
 		7366A8A0244C707500E0B9EA /* KSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSViewController.swift; sourceTree = "<group>"; };
 		7366A8A5244DA3FB00E0B9EA /* KSWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSWindow.swift; sourceTree = "<group>"; };
@@ -239,7 +239,7 @@
 			isa = PBXGroup;
 			children = (
 				7366A8BE244E9D6200E0B9EA /* KSWindowController.swift */,
-				731D3DAA244A77F900EC4530 /* KSBaseViewController.swift */,
+				731D3DAA244A77F900EC4530 /* KSMainViewController.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -399,7 +399,7 @@
 				73AEE8AE244AEF8F0035F537 /* KSImageExtension.swift in Sources */,
 				73EBD48B245078CB008E1AF0 /* KSItDeskView.swift in Sources */,
 				73AEE8B0244AF1D70035F537 /* KSTurnOnBtn.swift in Sources */,
-				731D3DAB244A77F900EC4530 /* KSBaseViewController.swift in Sources */,
+				731D3DAB244A77F900EC4530 /* KSMainViewController.swift in Sources */,
 				7366A8A6244DA3FB00E0B9EA /* KSWindow.swift in Sources */,
 				7366A8BD244E9A5E00E0B9EA /* KSLoginVC.swift in Sources */,
 				7366A8A1244C707500E0B9EA /* KSViewController.swift in Sources */,
