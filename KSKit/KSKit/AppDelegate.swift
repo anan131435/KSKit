@@ -33,13 +33,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 //                       window.contentViewController = KSBaseViewController.init()
 //                       let windowController = NSWindowController.init(window: window!)
 //                        windowController.showWindow(self)
-            window = KSWindow.init(contentRect: CGRect.init(x: 0, y: 0, width: 300, height: 400), styleMask: [.closable,.miniaturizable], backing: .buffered, defer: false)
+            
+            window = KSWindow.init(contentViewController: KSLoginVC())
+            windowVC = KSWindowController.init(window: window)
             window.titleVisibility = .hidden
-            window.isMovableByWindowBackground = true
-                   window.contentViewController = KSLoginVC()
-                   windowVC = KSWindowController.init(window: window!)
-                   window.center()
-                   windowVC.showWindow(self)
+            window.styleMask = [.miniaturizable,.closable]
+            window.styleMask.insert(.fullSizeContentView)
+            window.titlebarAppearsTransparent = true
+            windowVC.showWindow(self)
         }
     }
 

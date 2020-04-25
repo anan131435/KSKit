@@ -31,13 +31,25 @@ class KSBaseViewController: NSViewController {
        let menuView = KSMenuView()
         return menuView
     }()
+    lazy var item: NSStatusItem = {
+        let item = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
+        item.button?.image = NSImage.init(named: NSImage.Name.init("statusIcon"))
+        return item
+    }()
     override func viewDidLoad() {
         super.viewDidLoad()
+        let menu = NSMenu()
+        menu.title = "KSKit"
+        menu.addItem(NSMenuItem.init(title: "最小化", action: #selector(miniItemMenuClick), keyEquivalent: "s"))
+        menu.addItem(NSMenuItem.init(title: "连接", action: #selector(connectItemMenuClick), keyEquivalent: "d"))
+        menu.addItem(NSMenuItem.init(title: "断开", action: #selector(NSApp.terminate(_:)), keyEquivalent: "q"))
         view.addSubview(navigationView)
         view.addSubview(vpnMainView)
         view.addSubview(treasureView)
         view.addSubview(helpCenterView)
         view.addSubview(menuView)
+        item.menu = menu
+        
         updateConstrains()
         bindUI()
     }
@@ -92,12 +104,21 @@ class KSBaseViewController: NSViewController {
                     self.vpnMainView.isHidden = true
                     self.treasureView.isHidden = true
                     self.helpCenterView.isHidden = false
-                default:
-                    break
                 }
             }
         }
     }
+    
+    //最小化
+    @objc func miniItemMenuClick(){
+        self.view.window?.miniaturize(self)
+    }
+    //链接
+    @objc func connectItemMenuClick(){
+        
+    }
+    
+    
     deinit {
         NSLog("KSBaseViewController deinit")
     }

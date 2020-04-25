@@ -16,19 +16,36 @@ class KSLoginVC: NSViewController {
         loginView.layer?.masksToBounds = true
         return loginView
     }()
-
+    var closeBtn: NSButton!
+    var miniBtn: NSButton!
     override func viewDidLoad() {
         super.viewDidLoad()
+        closeBtn =  NSWindow.standardWindowButton(.closeButton, for: .borderless)
+        miniBtn =  NSWindow.standardWindowButton(.miniaturizeButton, for: .borderless)
         addChildViews()
         setupConstrains()
         bindUIEvent()
+        
+        
     }
     func addChildViews(){
         self.view.addSubview(loginMainView)
+        view.addSubview(closeBtn)
+        view.addSubview(miniBtn)
     }
     func setupConstrains(){
         loginMainView.snp.makeConstraints { (make) in
             make.edges.equalTo(0)
+        }
+        closeBtn.snp.makeConstraints { (make) in
+            make.left.equalTo(8)
+            make.top.equalTo(8)
+            make.width.height.equalTo(12)
+        }
+        miniBtn.snp.makeConstraints { (make) in
+            make.left.equalTo(closeBtn.snp.right).offset(6)
+           make.top.equalTo(8)
+           make.width.height.equalTo(12)
         }
     }
     func bindUIEvent(){
@@ -36,11 +53,15 @@ class KSLoginVC: NSViewController {
             guard let self = self else {return}
             self.jumpToNewWindow()
         }
+        closeBtn.action = #selector(closeBtnDidClick)
+        closeBtn.target = self
+        miniBtn.target = self
+        miniBtn.action = #selector(miniBtnDidClick)
     }
     override func loadView() {
         let mainView = NSView.init(frame: CGRect.init(x: 0, y: 0, width: 300, height: 400))
         mainView.wantsLayer = true
-//        mainView.layer?.backgroundColor = NSColor.yellow.cgColor
+        mainView.layer?.backgroundColor = NSColor.yellow.cgColor
         mainView.layer?.cornerRadius = 4
         mainView.layer?.masksToBounds = true
         self.view = mainView
@@ -68,10 +89,16 @@ class KSLoginVC: NSViewController {
             NSUserDefaultsController.shared.defaults.set("account", forKey: "account")
             NSUserDefaultsController.shared.defaults.synchronize()
         }
-        
-        
-        
-        
+    }
+    @objc func closeBtnDidClick(){
+        if let window = self.view.window{
+            window.close()
+        }
+    }
+    @objc func miniBtnDidClick(){
+        if let window = self.view.window{
+            window.miniaturize(self)
+        }
     }
     
     

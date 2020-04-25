@@ -7,6 +7,8 @@
 //
 
 import Cocoa
+import CoreFoundation
+import AppKit
 
 class KSLoginMainView: NSView {
     var loginClick: KSNoParamClosure?
@@ -32,6 +34,7 @@ class KSLoginMainView: NSView {
         emailLine.layer?.backgroundColor = NSColor.colorWithHex("d8d8d8").cgColor
         return emailLine
     }()
+    var timer: Timer?
     lazy var verifiCodeField: NSTextField = {
         let titleView = NSTextField.init(frame: CGRect.init(x: 37, y: 14, width: 480, height: 17))
         titleView.textColor = NSColor.colorWithHex("000000")
@@ -41,6 +44,16 @@ class KSLoginMainView: NSView {
         titleView.isBordered = false
         titleView.isEditable = true
         titleView.focusRingType = .none
+        return titleView
+    }()
+    lazy var countDownView: NSTextField = {
+        let titleView = NSTextField.init(frame: CGRect.init(x: 37, y: 14, width: 480, height: 17))
+        let nsmutablString = NSMutableAttributedString.init(string: "倒计时(60s)", attributes: [NSAttributedString.Key.font: NSFont.systemFont(ofSize: 14),NSAttributedString.Key.foregroundColor : NSColor.colorWithHex("999999")])
+        titleView.attributedStringValue = nsmutablString
+        titleView.backgroundColor = .white
+        titleView.isBordered = false
+        titleView.isEditable = false
+        titleView.isHidden = true
         return titleView
     }()
     lazy var codeLine: NSView = {
@@ -84,7 +97,7 @@ class KSLoginMainView: NSView {
         addChildViews()
         setupConstrains()
         self.wantsLayer = true
-        self.layer?.backgroundColor = NSColor.white.cgColor
+        self.layer?.backgroundColor = .clear
     }
     
     required init?(coder: NSCoder) {
@@ -96,6 +109,7 @@ class KSLoginMainView: NSView {
         self.addSubview(emailLine)
         self.addSubview(verifiCodeField)
         self.addSubview(verificationBtn)
+        self.addSubview(countDownView)
         self.addSubview(codeLine)
         self.addSubview(loginBtn)
     }
@@ -128,6 +142,10 @@ class KSLoginMainView: NSView {
             make.centerY.equalTo(verifiCodeField)
             make.right.equalTo(emailLine.snp.right)
         }
+        countDownView.snp.makeConstraints { (make) in
+            make.centerY.equalTo(verifiCodeField)
+            make.right.equalTo(emailLine.snp.right)
+        }
         codeLine.snp.makeConstraints { (make) in
             make.left.equalTo(20)
             make.right.equalTo(-20)
@@ -147,7 +165,26 @@ class KSLoginMainView: NSView {
         }
     }
     @objc func verifiCationBtnDidClick(){
-        
+        var number = 10
+        verificationBtn.isHidden = true
+        countDownView.isHidden = false
+        let nsmutablString = NSMutableAttributedString.init(string: "倒计时(60s)", attributes: [NSAttributedString.Key.font: NSFont.systemFont(ofSize: 14),NSAttributedString.Key.foregroundColor : NSColor.colorWithHex("999999")])
+        self.countDownView.attributedStringValue = nsmutablString
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: {[weak self] (timer) in
+            guard let self = self else {return}
+            number = number - 1
+            let nsmutablString = NSMutableAttributedString.init(string: "倒计时(\(number)s)", attributes: [NSAttributedString.Key.font: NSFont.systemFont(ofSize: 14),NSAttributedString.Key.foregroundColor : NSColor.colorWithHex("999999")])
+            self.countDownView.attributedStringValue = nsmutablString
+            if(number == 0){
+                self.invalidTimer()
+            }
+        })
+    }
+    func invalidTimer(){
+        self.timer?.invalidate()
+        self.timer = nil
+        verificationBtn.isHidden = false
+        countDownView.isHidden = true
     }
     
 }
