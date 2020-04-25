@@ -97,7 +97,7 @@ class KSLoginMainView: NSView {
         addChildViews()
         setupConstrains()
         self.wantsLayer = true
-        self.layer?.backgroundColor = .clear
+        self.layer?.backgroundColor = NSColor.white.cgColor
     }
     
     required init?(coder: NSCoder) {

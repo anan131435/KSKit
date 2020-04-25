@@ -7,13 +7,17 @@
 //
 
 import Cocoa
-class KSMainViewController: NSViewController {
+class KSMainViewController: KSBaseVC {
     lazy var navigationView: KSNavigationView = {
        let navigationView = KSNavigationView()
+        navigationView.wantsLayer = true
+        navigationView.layer?.cornerRadius = 12
         return navigationView
     }()
     lazy var vpnMainView: KSVpNMainView = {
        let menuView = KSVpNMainView()
+        menuView.wantsLayer = true
+        menuView.layer?.cornerRadius = 12
         return menuView
     }()
     lazy var treasureView: KSTreasureMainView = {
@@ -36,6 +40,7 @@ class KSMainViewController: NSViewController {
         item.button?.image = NSImage.init(named: NSImage.Name.init("statusIcon"))
         return item
     }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let menu = NSMenu()
@@ -49,7 +54,10 @@ class KSMainViewController: NSViewController {
         view.addSubview(helpCenterView)
         view.addSubview(menuView)
         item.menu = menu
-        
+        closeBtn =  NSWindow.standardWindowButton(.closeButton, for: .borderless)
+        miniBtn =  NSWindow.standardWindowButton(.miniaturizeButton, for: .borderless)
+        view.addSubview(closeBtn)
+        view.addSubview(miniBtn)
         updateConstrains()
         bindUI()
     }
@@ -78,12 +86,23 @@ class KSMainViewController: NSViewController {
             make.left.top.bottom.equalTo(0)
             make.width.equalTo(140)
         }
+        closeBtn.snp.makeConstraints { (make) in
+                   make.left.equalTo(8)
+                   make.top.equalTo(8)
+                   make.width.height.equalTo(12)
+        }
+       miniBtn.snp.makeConstraints { (make) in
+           make.left.equalTo(closeBtn.snp.right).offset(6)
+          make.top.equalTo(8)
+          make.width.height.equalTo(12)
+       }
         
     }
     override func loadView() {
         let mainview = NSView.init(frame: CGRect.init(x: 0, y: 0, width: 680, height: 444))
         mainview.wantsLayer = true
         mainview.layer?.backgroundColor = NSColor.colorWithHex("f3f5fb").cgColor
+        mainview.layer?.cornerRadius = 12
         self.view = mainview
         
     }
@@ -107,6 +126,7 @@ class KSMainViewController: NSViewController {
                 }
             }
         }
+       
     }
     
     //最小化
@@ -117,6 +137,7 @@ class KSMainViewController: NSViewController {
     @objc func connectItemMenuClick(){
         
     }
+    
     
     
     deinit {
