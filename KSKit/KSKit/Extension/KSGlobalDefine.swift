@@ -14,3 +14,5 @@ public typealias KSParamClosure = (_ value: Any? )-> Void
 public typealias KSParamValueClosure = (_ value: Any? ) -> Any?
 
 public typealias KSNoParamClosure = ()-> Void
+
+let pressBtnNotificationName: String = "pressBtnNotificationName"

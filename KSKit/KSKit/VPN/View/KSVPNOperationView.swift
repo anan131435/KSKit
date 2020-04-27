@@ -11,6 +11,7 @@ import Cocoa
 class KSVPNOperationView: NSView {
     var splitModel: KSVpnChooseModel!
     var fullModel: KSVpnChooseModel!
+    
     lazy var whiteView: NSView = {
         let whiteView = NSView.init(frame: CGRect.init(x: 20, y: 7, width: self.bounds.size.width, height: 126))
         whiteView.wantsLayer = true
@@ -42,6 +43,7 @@ class KSVPNOperationView: NSView {
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
         self.addChildView()
+        bindUIEvent()
     }
     
     required init?(coder: NSCoder) {
@@ -80,6 +82,15 @@ class KSVPNOperationView: NSView {
         splitModel.ifOpen = true
         splitBtn.updateChooseBtnContent(splitModel)
         fullBtn.updateChooseBtnContent(fullModel)
+    }
+    /*
+     DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+         
+     }
+     */
+    func bindUIEvent(){
+        
+        
     }
     
     

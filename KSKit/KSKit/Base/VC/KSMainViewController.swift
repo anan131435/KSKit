@@ -40,6 +40,13 @@ class KSMainViewController: KSBaseVC {
         item.button?.image = NSImage.init(named: NSImage.Name.init("statusIcon"))
         return item
     }()
+    lazy var indicator: NSProgressIndicator = {
+           let cator = NSProgressIndicator(frame: CGRect(x: 0, y: 0, width: 680, height: 444))
+            cator.style = NSProgressIndicator.Style.spinning //条形样式, 菊花样式
+           cator.controlSize = NSControl.ControlSize.regular //大小, 可选 regular small  mini
+           cator.sizeToFit()     //size适配菊花大小,多余的舍弃
+           return cator
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,6 +67,7 @@ class KSMainViewController: KSBaseVC {
         view.addSubview(miniBtn)
         updateConstrains()
         bindUI()
+        
     }
     func updateConstrains(){
         navigationView.snp.makeConstraints{ (make) in
@@ -126,6 +134,7 @@ class KSMainViewController: KSBaseVC {
                 }
             }
         }
+        NotificationCenter.default.addObserver(self, selector: #selector(pressVpnBtnDidClick(notifiaction:)), name: NSNotification.Name.init(pressBtnNotificationName), object: nil)
        
     }
     
@@ -136,6 +145,21 @@ class KSMainViewController: KSBaseVC {
     //链接
     @objc func connectItemMenuClick(){
         
+    }
+    @objc func pressVpnBtnDidClick(notifiaction: NSNotification){
+        if let dict = notifiaction.userInfo as? [String : Any],let button = dict["pressBtn"]{
+            self.view.addSubview(indicator)
+            indicator.snp.makeConstraints { (make) in
+                make.center.equalTo(self.view)
+                make.width.height.equalTo(30)
+            }
+            indicator.startAnimation(nil)
+            self.indicator.isHidden = false
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+                self.indicator.stopAnimation(nil)
+                self.indicator.isHidden = true
+            }
+        }
     }
     
     

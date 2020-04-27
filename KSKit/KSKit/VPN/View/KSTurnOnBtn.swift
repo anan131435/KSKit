@@ -9,6 +9,7 @@
 import Cocoa
 
 class KSTurnOnBtn: NSView {
+    var presBtnClosure: KSParamClosure?
     lazy var grayView: NSView = {
         let grayView = NSView.init(frame: self.bounds)
         grayView.wantsLayer = true
@@ -26,12 +27,19 @@ class KSTurnOnBtn: NSView {
         whiteView.layer?.shadowOffset = CGSize.init(width: 5, height: 5)
         return whiteView
     }()
-    lazy var pressBtn: NSImageView = {
-        var pressBtn = NSImageView()
+    lazy var pressBtn: NSButton = {
+        var pressBtn = NSButton()
         pressBtn.image = NSImage.init(named: NSImage.Name.init("turnOn"))?.resize(CGSize.init(width: 18, height: 18))
+        pressBtn.target = self
+        pressBtn.action = #selector(pressBtnDidClick)
         pressBtn.frame = CGRect.init(x: 98 / 2 - 9, y: 98 / 2 - 9, width: 18, height: 18)
+        pressBtn.isBordered = false
         return pressBtn
     }()
+//    lazy var coreSwitch: NSSwitch = {
+//       let coreswitch = NSSwitch()
+//        return coreswitch
+//    }()
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
 
@@ -51,7 +59,8 @@ class KSTurnOnBtn: NSView {
         fatalError("init(coder:) has not been implemented")
     }
     @objc func pressBtnDidClick(){
-        
+        pressBtn.isHighlighted = !pressBtn.isHighlighted
+        NotificationCenter.default.post(name: NSNotification.Name.init(pressBtnNotificationName), object: nil, userInfo: ["pressBtn":pressBtn])
     }
     
     
